@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int highScore = 0;
     public bool gameOver = false;
 
+    // UI-referenties — sleep deze in de Inspector
     public GameObject gameOverPanel;
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI finalScoreText;
@@ -66,9 +67,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Wordt aangeroepen wanneer de speler op de Play Again knop drukt
     public void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Wordt aangeroepen wanneer de speler op de Main Menu knop drukt
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("StartScene");
     }
 }

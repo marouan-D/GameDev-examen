@@ -14,8 +14,10 @@ public class FallingBook : MonoBehaviour
 
     void Update()
     {
+        // Beweeg het object omlaag, langs de wereld-as
         transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
 
+        // Vernietig het object als 't onder het scherm valt
         if (transform.position.y < destroyY)
         {
             Destroy(gameObject);
@@ -24,16 +26,29 @@ public class FallingBook : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // Trigger de visuele flash op de raket
+        PlayerFeedback feedback = other.GetComponent<PlayerFeedback>();
+        if (feedback != null)
+        {
+            if (isMeteor)
+            {
+                feedback.FlashHit();
+            }
+            else
+            {
+                feedback.FlashCatch();
+            }
+        }
+
+        // Score of leven aanpassen via de GameManager
         if (GameManager.Instance != null)
         {
             if (isMeteor)
             {
-                // Meteoren kosten een leven
                 GameManager.Instance.LoseLife();
             }
             else
             {
-                // Boeken geven punten
                 GameManager.Instance.AddScore(scoreValue);
             }
         }

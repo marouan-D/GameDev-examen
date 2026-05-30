@@ -29,3 +29,9 @@ GameManager met static instance voor score en lives, beide op het scherm via Tex
 Game over scherm: bij 0 levens pauzeert alles (`Time.timeScale = 0`), overlay met "YOU WIN!" (score ≥ 30) of "GAME OVER" + final score + Play Again-knop die de scene herlaadt.
 
 ![](scrum/f2.png)
+
+## 30-05-2026
+
+Game afgewerkt: gouden boeken, high score persistentie en een duidelijker score-display toegevoegd. Startscherm en uitleg-scherm gebouwd in aparte scenes. Daarmee staan alle kaartjes op het scrum board op Done — wat overblijft zijn de niet-code dingen: user test, overdrachtsdocument en presentatie.
+
+![](scrum/f3.png)
